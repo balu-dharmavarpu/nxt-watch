@@ -239,7 +239,7 @@ export default class VideoDetails extends Component {
                                   <img
                                     className="chanel-logo"
                                     src={channelProfileUrl}
-                                    alt="channel image"
+                                    alt="channel logo"
                                   />
                                   <div className="chanel">
                                     <p className="sub-count">{channelName}</p>

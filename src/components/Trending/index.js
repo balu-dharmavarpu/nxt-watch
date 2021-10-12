@@ -120,7 +120,6 @@ export default class Home extends Component {
   }
 
   render() {
-    const { videosData } = this.state
     return (
       <ThemeContext.Consumer>
         {(value) => {

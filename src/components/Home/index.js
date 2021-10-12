@@ -172,7 +172,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const { searchInput, bannerStatus, videosData } = this.state
+    const { searchInput, bannerStatus} = this.state
     return (
       <ThemeContext.Consumer>
         {(value) => {

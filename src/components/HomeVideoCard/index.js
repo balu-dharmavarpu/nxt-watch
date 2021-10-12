@@ -39,7 +39,7 @@ function index(props) {
                    <img
                      className="video-channelImg"
                      src={channelProfileUrl}
-                     alt="channel image"
+                     alt="channel logo"
                    />
                    <p className={titleStyle}>{title}</p>
                  </div>

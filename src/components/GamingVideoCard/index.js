@@ -1,6 +1,5 @@
 import React from "react"
 import { CardMedia, Card, Grid } from "@mui/material"
-import { GoPrimitiveDot } from "react-icons/go"
 import { Link } from "react-router-dom"
 import ThemeContext from "../../context/ThemeContext"
 import "./index.css"

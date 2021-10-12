@@ -8,7 +8,7 @@ function index(props) {
   const { video } = props
   const {
     channelName,
-    channelProfileUrl,
+    // channelProfileUrl,
     id,
     publishedAt,
     thumbnailUrl,

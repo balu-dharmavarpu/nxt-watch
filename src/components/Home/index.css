@@ -1,10 +1,12 @@
 .home-main-container {
   background-color: #f8fafc;
   padding-top: 20px;
+  min-height: 100vh;
 }
 .home-dark-container{
   background-color: #000000;
   color: #ffffff;
+  min-height: 100vh;
   padding-top: 20px;
 }
 .video-main-container {
