@@ -66,7 +66,7 @@ export default class VideoDetails extends Component {
     if (response.ok === true) {
       const data = await response.json()
       const updatedData = this.updatedVideoDetails(data.video_details)
-      const similarVideosData = data.similar_videos.map((video) => ({
+      const similarVideosData = data.similar_videos !== undefined ? data.similar_videos.map((video) => ({
         channelName: video.channel.name,
         channelProfileUrl: video.channel.profile_image_url,
         id: video.id,
@@ -74,7 +74,8 @@ export default class VideoDetails extends Component {
         thumbnailUrl: video.thumbnail_url,
         title: video.title,
         viewCount: video.view_count,
-      }))
+      })) : null
+
       this.setState({
         videoDetails: updatedData,
         similarVideos: similarVideosData,
@@ -163,22 +164,22 @@ export default class VideoDetails extends Component {
                               ? "reaction-item active-btn"
                               : "dark-reaction-item reaction-item"
                             : isSaved
-                            ? "reaction-item active-btn"
-                            : "reaction-item"
+                              ? "reaction-item active-btn"
+                              : "reaction-item"
                           const likedStyles = isDarkTheme
                             ? isLiked
                               ? "reaction-item active-btn"
                               : "dark-reaction-item reaction-item"
                             : isLiked
-                            ? "reaction-item active-btn"
-                            : "reaction-item"
+                              ? "reaction-item active-btn"
+                              : "reaction-item"
                           const disLikedStyles = isDarkTheme
                             ? isDisLiked
                               ? "reaction-item active-btn"
                               : "dark-reaction-item reaction-item"
                             : isDisLiked
-                            ? "reaction-item active-btn"
-                            : "reaction-item"
+                              ? "reaction-item active-btn"
+                              : "reaction-item"
 
                           return (
                             <Grid
@@ -191,7 +192,7 @@ export default class VideoDetails extends Component {
                                   className="videoFrame"
                                   width="100%"
                                   height={
-                                  // eslint-disable-next-line no-restricted-globals
+                                    // eslint-disable-next-line no-restricted-globals
                                     screen.width === 1440 ? "490px" : "360px"
                                   }
                                   url={videoUrl}
@@ -250,17 +251,18 @@ export default class VideoDetails extends Component {
                                   {description}
                                 </p>
                               </Grid>
-                              <Grid item xs={12}>
-                                <h3>Similar Videos</h3>
-                              </Grid>
-                              {similarVideos.length === 0
-                                ? this.noVideosView()
-                                : similarVideos.map((video) => (
+                              {similarVideos !== null && similarVideos.length > 0 &&
+                                <>
+                                  <Grid item xs={12}>
+                                    <h3>Similar Videos</h3>
+                                  </Grid>
+                                  {similarVideos.map((video) => (
                                     <TrendingVideoCard
                                       key={video.id}
                                       video={video}
                                     />
                                   ))}
+                                </>}
                             </Grid>
                           )
                         }}
